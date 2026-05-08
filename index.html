@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Shower de Nicolás 👶</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@300;400;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:     #d6eeff;
+      --sky2:    #b8dff8;
+      --blue:    #5bafd6;
+      --blue2:   #3a8fbf;
+      --navy:    #1e5f80;
+      --white:   #ffffff;
+      --cream:   #f0f8ff;
+      --yellow:  #ffe066;
+      --mint:    #b8f0e0;
+      --text:    #1d3a4f;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #c8e8fa 0%, #e8f5ff 60%, #f0faff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Clouds */
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50px;
+      opacity: 0.75;
+    }
+    .cloud::before, .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+    .cloud-1 { width: 120px; height: 38px; top: 12%; left: 5%; animation: drift 14s ease-in-out infinite; }
+    .cloud-1::before { width: 60px; height: 60px; top: -28px; left: 15px; }
+    .cloud-1::after  { width: 40px; height: 40px; top: -18px; left: 50px; }
+
+    .cloud-2 { width: 90px; height: 28px; top: 22%; right: 8%; animation: drift 18s ease-in-out infinite reverse; }
+    .cloud-2::before { width: 45px; height: 45px; top: -22px; left: 10px; }
+    .cloud-2::after  { width: 30px; height: 30px; top: -14px; left: 40px; }
+
+    .cloud-3 { width: 70px; height: 22px; top: 8%; right: 25%; animation: drift 12s ease-in-out infinite; animation-delay: 4s; }
+    .cloud-3::before { width: 35px; height: 35px; top: -16px; left: 8px; }
+    .cloud-3::after  { width: 25px; height: 25px; top: -10px; left: 32px; }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(12px); }
+    }
+
+    /* Floating items */
+    .floaters {
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+    }
+    .floater {
+      position: absolute;
+      font-size: 2rem;
+      animation: bob 4s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    .floater:nth-child(1)  { top: 10%; left:  8%; animation-delay: 0s;   font-size: 2.4rem; }
+    .floater:nth-child(2)  { top: 15%; right: 10%; animation-delay: 1s;   font-size: 1.8rem; }
+    .floater:nth-child(3)  { top: 75%; left:  5%; animation-delay: 2s;   font-size: 2rem; }
+    .floater:nth-child(4)  { top: 80%; right: 6%; animation-delay: 0.5s; font-size: 1.6rem; }
+    .floater:nth-child(5)  { top: 55%; left: 3%; animation-delay: 3s;   font-size: 1.4rem; }
+    .floater:nth-child(6)  { top: 40%; right: 3%; animation-delay: 1.5s; font-size: 2rem; }
+    .floater:nth-child(7)  { top: 88%; left: 30%; animation-delay: 2.5s; font-size: 1.5rem; }
+    .floater:nth-child(8)  { top: 85%; right: 28%; animation-delay: 0.8s; font-size: 1.8rem; }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50%       { transform: translateY(-12px) rotate(4deg); }
+    }
+
+    /* Stork badge */
+    .stork-badge {
+      background: var(--yellow);
+      color: var(--navy);
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px 28px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(255,224,102,0.45);
+      animation: wiggle 3s ease-in-out infinite;
+    }
+    @keyframes wiggle {
+      0%,100% { transform: rotate(-1.5deg); }
+      50%      { transform: rotate(1.5deg); }
+    }
+
+    .hero-emoji { font-size: clamp(3rem, 8vw, 5rem); margin-bottom: 10px; display: block; }
+
+    .hero h1 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(3.2rem, 12vw, 6.5rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 6px;
+      text-shadow: 3px 3px 0px rgba(126,200,227,0.4);
+    }
+
+    .hero h1 .name {
+      color: var(--blue2);
+      display: block;
+      font-size: clamp(4rem, 15vw, 8rem);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      color: var(--navy);
+      margin: 14px 0 4px;
+      opacity: 0.8;
+    }
+
+    .hero-parents {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.55rem);
+      font-weight: 600;
+      color: var(--blue2);
+      margin-bottom: 32px;
+    }
+
+    .hero-btn {
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(30,95,128,0.3);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .hero-btn:hover { background: var(--blue2); transform: translateY(-3px) scale(1.03); }
+
+    /* ══════════════════════════════
+       WAVE
+    ══════════════════════════════ */
+    .wave { line-height: 0; overflow: hidden; }
+    .wave svg { display: block; width: 100%; }
+
+    /* ══════════════════════════════
+       SECTIONS
+    ══════════════════════════════ */
+    section { padding: 60px 20px; }
+
+    .inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--sky2);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    p { line-height: 1.75; font-size: 1.05rem; }
+
+    /* ══════════════════════════════
+       EVENT DETAILS
+    ══════════════════════════════ */
+    .details-bg { background: #e4f3fc; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px 18px 22px;
+      box-shadow: 0 6px 24px rgba(91,175,214,0.15);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--sky2), var(--blue));
+      border-radius: 0 0 24px 24px;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(91,175,214,0.25); }
+
+    .card-icon { font-size: 2.6rem; margin-bottom: 10px; }
+
+    .card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .card p { font-size: 1rem; color: var(--text); font-weight: 700; }
+    .card .sub { font-weight: 400; font-size: 0.88rem; color: #6a9db8; margin-top: 4px; }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 30px;
+      background: var(--blue2);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(58,143,191,0.3);
+    }
+    .map-btn:hover { background: var(--navy); transform: translateY(-2px); }
+
+    /* ══════════════════════════════
+       COUNTDOWN
+    ══════════════════════════════ */
+    .countdown-bg { background: var(--navy); }
+    .countdown-bg .pill { background: rgba(255,255,255,0.15); color: #fff; }
+    .countdown-bg h2 { color: #fff; }
+    .countdown-bg p  { color: rgba(255,255,255,0.8); }
+
+    .countdown-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .cbox {
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      border-radius: 20px;
+      padding: 20px 22px;
+      min-width: 88px;
+      text-align: center;
+    }
+
+    .cbox .num {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .cbox .lbl {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-top: 5px;
+    }
+
+    /* ══════════════════════════════
+       FORM
+    ══════════════════════════════ */
+    .form-bg { background: linear-gradient(160deg, #d6eeff 0%, #eaf6ff 100%); }
+
+    .rsvp-box {
+      background: #fff;
+      border-radius: 28px;
+      padding: 40px 36px;
+      box-shadow: 0 10px 48px rgba(58,143,191,0.14);
+      margin-top: 32px;
+      text-align: left;
+    }
+
+    .form-row { margin-bottom: 18px; }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue2);
+      margin-bottom: 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 2.5px solid var(--sky2);
+      border-radius: 14px;
+      font-size: 1rem;
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(91,175,214,0.25);
+    }
+    textarea { resize: vertical; min-height: 88px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } .rsvp-box { padding: 28px 20px; } }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(30,95,128,0.3);
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover:not(:disabled) { background: var(--blue2); transform: translateY(-2px); }
+    .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .form-msg {
+      display: none;
+      margin-top: 18px;
+      padding: 16px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .form-msg.success { background: #d4f0e0; color: #155724; display: block; }
+    .form-msg.error   { background: #fde0e0; color: #721c24; display: block; }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      background: var(--navy);
+      color: #fff;
+      text-align: center;
+      padding: 36px 20px;
+    }
+
+    .footer-baby { font-size: 3rem; margin-bottom: 10px; }
+
+    footer .big {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    footer .small {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 10px;
+    }
+
+    /* ══════════════════════════════
+       REVEAL
+    ══════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+
+    <!-- Clouds -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <!-- Floating baby icons -->
+    <div class="floaters">
+      <span class="floater">🍼</span>
+      <span class="floater">🧸</span>
+      <span class="floater">👟</span>
+      <span class="floater">🌙</span>
+      <span class="floater">⭐</span>
+      <span class="floater">🎀</span>
+      <span class="floater">🍭</span>
+      <span class="floater">🧩</span>
+    </div>
+
+    <div class="stork-badge">👶 ¡Es un niño! 👶</div>
+    <span class="hero-emoji">🧸</span>
+    <h1>
+      ¡Viene en camino
+      <span class="name">Nicolás!</span>
+    </h1>
+    <p class="hero-sub">Sus papás</p>
+    <p class="hero-parents">Juan David Calle Duque &amp; Yesenia Echavarria Hoyos</p>
+    <p class="hero-sub" style="margin-top:0; margin-bottom:28px;">te invitan a celebrar su Baby Shower 🎉</p>
+    <button class="hero-btn" onclick="document.getElementById('detalles').scrollIntoView({behavior:'smooth'})">
+      Ver datos del evento 📅
+    </button>
+
+  </section>
+
+  <div class="wave" style="background:#e4f3fc;">
+    <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C200,90 600,0 900,50 C1100,85 1300,10 1440,40 L1440,90 L0,90 Z" fill="#c8e8fa"/>
+    </svg>
+  </div>
+
+  <!-- ══ DETALLES ══ -->
+  <section class="details-bg" id="detalles">
+    <div class="inner reveal">
+      <span class="pill">🗓️ El gran día</span>
+      <h2>¿Cuándo y dónde? 📍</h2>
+      <p>Acompáñanos a celebrar la llegada de nuestro pequeño Nicolás.<br>¡Será una tarde llena de amor, risas y mucha alegría!</p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📅</div>
+          <h3>Fecha</h3>
+          <p>Domingo<br>24 de Mayo, 2026</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⏰</div>
+          <h3>Hora</h3>
+          <p>4:00 PM</p>
+          <p class="sub">¡No llegues tarde!</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📍</div>
+          <h3>Lugar</h3>
+          <p>Distrito Vera</p>
+          <p class="sub">Medellín, Antioquia</p>
+        </div>
+      </div>
+
+      <a
+        class="map-btn"
+        href="https://www.google.com/maps/search/?api=1&query=Distrito+Vera+Medellin"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📌 Cómo llegar
+      </a>
+    </div>
+  </section>
+
+  <div class="wave" style="background:#1e5f80;">
+    <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,45 C300,0 700,90 1100,30 C1250,10 1380,60 1440,45 L1440,90 L0,90 Z" fill="#e4f3fc"/>
+    </svg>
+  </div>
+
+  <!-- ══ COUNTDOWN ══ -->
+  <section class="countdown-bg" id="cuenta">
+    <div class="inner reveal">
+      <span class="pill">⏳ Cuenta regresiva</span>
+      <h2>¡Falta poquito! 🎈</h2>
+      <p>El tiempo corre y la emoción crece. ¡Nicolás ya está por llegar!</p>
+      <div class="countdown-wrap">
+        <div class="cbox"><div class="num" id="cd-days">--</div><div class="lbl">Días</div></div>
+        <div class="cbox"><div class="num" id="cd-hours">--</div><div class="lbl">Horas</div></div>
+        <div class="cbox"><div class="num" id="cd-mins">--</div><div class="lbl">Minutos</div></div>
+        <div class="cbox"><div class="num" id="cd-secs">--</div><div class="lbl">Segundos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave" style="background:#d6eeff;">
+    <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,45 C400,90 900,0 1440,50 L1440,90 L0,90 Z" fill="#1e5f80"/>
+    </svg>
+  </div>
+
+  <!-- ══ FORM ══ -->
+  <section class="form-bg" id="confirmar">
+    <div class="inner reveal">
+      <span class="pill">💌 RSVP</span>
+      <h2>¡Confirma tu asistencia! 🙋</h2>
+      <p>Por favor confirma antes del <strong>17 de Mayo</strong> para poder preparar todo con amor. ¡Te esperamos! 💙</p>
+
+      <form class="rsvp-box" id="rsvpForm" novalidate>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="nombre">👤 Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-row">
+            <label for="email">✉️ Correo electrónico *</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="telefono">📱 Teléfono / WhatsApp</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" />
+          </div>
+          <div class="form-row">
+            <label for="asistentes">🧑‍🤝‍🧑 ¿Cuántos asisten?</label>
+            <select id="asistentes" name="asistentes">
+              <option value="1">Solo yo (1)</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5+">5 o más</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="mensaje">💬 Mensaje para los papás</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escríbeles un mensaje especial a Juan David y Yesenia... 💙"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          ¡Confirmo que voy! 🎉🍼
+        </button>
+
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-baby">👶🏻💙</div>
+    <p class="big">Nicolás Calle Echavarria</p>
+    <p style="color:rgba(255,255,255,0.9);">Con todo el amor del mundo, celebramos tu llegada</p>
+    <p class="small">Domingo 24 de Mayo · El Poblado · Medellín 🎈</p>
+  </footer>
+
+  <script>
+    // ── Countdown ──
+    const EVENT = new Date('2026-05-24T16:00:00');
+
+    function tick() {
+      const diff = EVENT - new Date();
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => document.getElementById(id).textContent = '0');
+        return;
+      }
+      document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+      document.getElementById('cd-hours').textContent = String(Math.floor(diff % 86400000 / 3600000)).padStart(2,'0');
+      document.getElementById('cd-mins').textContent  = String(Math.floor(diff % 3600000 / 60000)).padStart(2,'0');
+      document.getElementById('cd-secs').textContent  = String(Math.floor(diff % 60000 / 1000)).padStart(2,'0');
+    }
+    tick(); setInterval(tick, 1000);
+
+    // ── Scroll reveal ──
+    const obs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // ── RSVP ──
+    const WEBHOOK = 'https://n8n.srv1164464.hstgr.cloud/webhook/575d025c-f8db-429b-b330-8f7721f35d80';
+
+    document.getElementById('rsvpForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const nombre     = document.getElementById('nombre').value.trim();
+      const email      = document.getElementById('email').value.trim();
+      const telefono   = document.getElementById('telefono').value.trim();
+      const asistentes = document.getElementById('asistentes').value;
+      const mensaje    = document.getElementById('mensaje').value.trim();
+      const msgEl      = document.getElementById('formMsg');
+      const btn        = document.getElementById('submitBtn');
+
+      msgEl.className = 'form-msg';
+      msgEl.textContent = '';
+
+      if (!nombre) { showErr('Por favor ingresa tu nombre completo.'); return; }
+      if (!email || !/\S+@\S+\.\S+/.test(email)) { showErr('Por favor ingresa un correo electrónico válido.'); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando... ✈️';
+
+      try {
+        await fetch(WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            evento: 'Baby Shower Nicolás',
+            fecha_evento: 'Domingo 24 de Mayo 2026',
+            nombre,
+            email,
+            telefono: telefono || null,
+            numero_asistentes: asistentes,
+            mensaje: mensaje || null,
+            fecha_registro: new Date().toISOString(),
+          }),
+        });
+        msgEl.textContent = `¡Gracias, ${nombre}! 🎉 Tu asistencia fue confirmada. ¡Te esperamos con los brazos abiertos!`;
+        msgEl.className = 'form-msg success';
+        this.reset();
+      } catch {
+        showErr('Hubo un problema al enviar. Por favor intenta de nuevo.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '¡Confirmo que voy! 🎉🍼';
+      }
+
+      function showErr(msg) { msgEl.textContent = msg; msgEl.className = 'form-msg error'; }
+    });
+  </script>
+</body>
+</html>
